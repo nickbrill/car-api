@@ -1,9 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const port = 3000;
+app.use(cors());
+const port = process.env.PORT || 3000;
 
 const AIRTABLE_API_URL = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/cars`; // Replace 'Cars' with your table name
 const AIRTABLE_HEADERS = {
